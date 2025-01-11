@@ -7,3 +7,4 @@
 out/testapp.deps.json
 out/appsettings.json
 out/appsettings.Development.json
+.env
