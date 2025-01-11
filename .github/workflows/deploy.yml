@@ -18,14 +18,16 @@ jobs:
       with:
         dotnet-version: '7.0'
 
+    - name: Load environment variables
+      run: |
+        if [ -f .env ]; then
+          export $(grep -v '^#' .env | xargs)
+        fi
+
     - name: Build project
       run: dotnet publish -c Release -o out
 
     - name: Deploy to VPS
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        HOST: ${{ secrets.HOST }}
-        USER: ${{ secrets.USER }}
       run: |
         mkdir -p ~/.ssh
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
