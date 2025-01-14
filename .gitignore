@@ -8,3 +8,6 @@ out/testapp.deps.json
 out/appsettings.json
 out/appsettings.Development.json
 .env
+testapp/bin/Debug/net8.0/appsettings.json
+/testapp/bin
+/testapp/bin
